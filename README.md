@@ -50,3 +50,5 @@ Organik arama trafiği ve geliştirici güveni oluşturan 10 açık kaynak GitHu
 
 * **GitHub Pages:** [https://eimza-kep.github.io/eimza-blog/](https://eimza-kep.github.io/eimza-blog/)
 * **Cloudflare Mirror:** [https://eimza-blog.pages.dev](https://eimza-blog.pages.dev)
+* **RSS 2.0 Yayını:** [https://eimza-blog.pages.dev/feed.xml](https://eimza-blog.pages.dev/feed.xml)
+* **JSON Feed 1.1:** [https://eimza-blog.pages.dev/feed.json](https://eimza-blog.pages.dev/feed.json)

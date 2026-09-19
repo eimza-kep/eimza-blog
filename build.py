@@ -1,10 +1,19 @@
 import os
 import re
+import sys
 import glob
 import math
 import shutil
 import yaml
 import markdown
+
+try:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
 POSTS_DIR = os.path.join(os.path.dirname(__file__), "content", "posts")
 DIST_DIR = os.path.join(os.path.dirname(__file__), "dist")
@@ -80,6 +89,8 @@ def get_base_template(title, content, base_path="./", canonical_url=""):
     <title>{title} | {SITE_TITLE}</title>
     <meta name="description" content="{SITE_DESC}">
     <link rel="canonical" href="{canonical_url or SITE_URL}">
+    <link rel="alternate" type="application/rss+xml" title="{SITE_TITLE} (RSS 2.0)" href="{SITE_URL}/feed.xml">
+    <link rel="alternate" type="application/json" title="{SITE_TITLE} (JSON Feed)" href="{SITE_URL}/feed.json">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {{
@@ -151,6 +162,7 @@ def get_base_template(title, content, base_path="./", canonical_url=""):
                 <a href="https://edonusum-kobi.pages.dev" target="_blank" class="hover:text-emerald-600">KOBİ Dönüşüm</a>
                 <a href="https://uyap-teknik-destek.pages.dev" target="_blank" class="hover:text-emerald-600">UYAP Destek</a>
                 <a href="https://dijital-kimlik-guvenlik.pages.dev" target="_blank" class="hover:text-emerald-600">Kimlik & PKI Lab</a>
+                <a href="{base_path}feed.xml" target="_blank" class="text-emerald-600 hover:text-emerald-700 font-bold">📡 RSS</a>
             </div>
             <p class="font-semibold text-slate-700">© 2026 E-İmza ve E-Dönüşüm Ekosistemi</p>
             <p class="text-xs mt-1 text-slate-400">Cloudflare Pages & GitHub Pages ile %100 Otonom ve Yüksek Hızlı Dağıtık Altyapı.</p>
@@ -728,10 +740,64 @@ def generate_site():
     with open(os.path.join(DIST_DIR, "sitemap.xml"), "w", encoding="utf-8") as out:
         out.write(sitemap_xml)
 
+    # 4. Build RSS 2.0 Feed & JSON Feed
+    rss_items = []
+    json_items = []
+    for art in articles:
+        link = f"{SITE_URL}/posts/{art['slug']}.html"
+        desc = art['description'] or art['body_preview']
+        esc_title = art['title'].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        rss_items.append(f"""    <item>
+      <title>{esc_title}</title>
+      <link>{link}</link>
+      <guid isPermaLink="true">{link}</guid>
+      <pubDate>{art['pub_date']} 00:00:00 +0300</pubDate>
+      <category>{art['category']}</category>
+      <description><![CDATA[{desc}]]></description>
+    </item>""")
+        json_items.append({
+            "id": link,
+            "url": link,
+            "title": art['title'],
+            "summary": desc,
+            "date_published": f"{art['pub_date']}T00:00:00+03:00",
+            "tags": [art['category']] if art['category'] else []
+        })
+
+    rss_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{SITE_TITLE}</title>
+    <link>{SITE_URL}</link>
+    <description>{SITE_DESC}</description>
+    <language>tr</language>
+    <atom:link href="{SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+{chr(10).join(rss_items)}
+  </channel>
+</rss>"""
+
+    with open(os.path.join(DIST_DIR, "feed.xml"), "w", encoding="utf-8") as out:
+        out.write(rss_xml)
+    with open(os.path.join(DIST_DIR, "rss.xml"), "w", encoding="utf-8") as out:
+        out.write(rss_xml)
+
+    import json as json_mod
+    json_feed = {
+        "version": "https://jsonfeed.org/version/1.1",
+        "title": SITE_TITLE,
+        "home_page_url": SITE_URL,
+        "feed_url": f"{SITE_URL}/feed.json",
+        "description": SITE_DESC,
+        "items": json_items
+    }
+    with open(os.path.join(DIST_DIR, "feed.json"), "w", encoding="utf-8") as out:
+        json_mod.dump(json_feed, out, ensure_ascii=False, indent=2)
+
     with open(os.path.join(DIST_DIR, "robots.txt"), "w", encoding="utf-8") as out:
         out.write(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
 
-    print(f"Done! Built {len(articles)} articles into {DIST_DIR}")
+    print(f"Done! Built {len(articles)} articles into {DIST_DIR} with RSS & JSON feeds.")
 
 if __name__ == "__main__":
     generate_site()
+
