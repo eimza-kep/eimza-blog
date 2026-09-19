@@ -71,7 +71,7 @@ def parse_markdown(file_path):
         "body_preview": re.sub(r'<[^>]+>', '', html_content)[:220] + "..."
     }
 
-def get_base_template(title, content, canonical_url=""):
+def get_base_template(title, content, base_path="./", canonical_url=""):
     return f"""<!DOCTYPE html>
 <html lang="tr" class="scroll-smooth">
 <head>
@@ -110,7 +110,7 @@ def get_base_template(title, content, canonical_url=""):
     <!-- Header -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm backdrop-blur-md bg-white/90">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-3 group">
+            <a href="{base_path}" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-bold shadow-md group-hover:scale-105 transition-transform">
                     ✍️
                 </div>
@@ -120,7 +120,7 @@ def get_base_template(title, content, canonical_url=""):
                 </div>
             </a>
             <div class="flex items-center gap-4">
-                <a href="/" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors">Ana Sayfa</a>
+                <a href="{base_path}" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors">Ana Sayfa</a>
                 <a href="https://dev.to/eimza" target="_blank" rel="noopener" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5">
                     <span>DEV.to</span> ↗
                 </a>
@@ -169,7 +169,7 @@ def generate_site():
         post_html = f"""
         <article class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200 max-w-3xl mx-auto">
             <div class="mb-6">
-                <a href="/" class="inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 hover:text-emerald-700 mb-4 transition-colors">
+                <a href="../" class="inline-flex items-center gap-1 text-sm font-semibold text-emerald-600 hover:text-emerald-700 mb-4 transition-colors">
                     ← Tüm Yazılara Dön
                 </a>
                 <div class="flex flex-wrap items-center gap-2 mb-3">
@@ -195,7 +195,7 @@ def generate_site():
             </div>
 
             <div class="mt-12 pt-6 border-t border-slate-200 flex justify-between items-center">
-                <a href="/" class="text-sm font-semibold text-emerald-600 hover:text-emerald-700">
+                <a href="../" class="text-sm font-semibold text-emerald-600 hover:text-emerald-700">
                     ← Tüm Yazılara Dön
                 </a>
                 <a href="#top" class="text-xs text-slate-400 hover:text-slate-600">
@@ -204,7 +204,7 @@ def generate_site():
             </div>
         </article>
         """
-        full_html = get_base_template(art['title'], post_html, post_url)
+        full_html = get_base_template(art['title'], post_html, base_path="../", canonical_url=post_url)
         with open(os.path.join(DIST_DIR, "posts", f"{art['slug']}.html"), "w", encoding="utf-8") as out:
             out.write(full_html)
 
@@ -223,7 +223,7 @@ def generate_site():
                     </span>
                 </div>
                 <h2 class="text-lg font-bold text-slate-900 leading-snug hover:text-emerald-600 transition-colors mb-2">
-                    <a href="/posts/{art['slug']}.html">
+                    <a href="posts/{art['slug']}.html">
                         {art['title']}
                     </a>
                 </h2>
@@ -233,7 +233,7 @@ def generate_site():
             </div>
             <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium">
                 <span>⏱️ {art['reading_time']} dk okuma</span>
-                <a href="/posts/{art['slug']}.html" class="text-emerald-600 font-bold hover:text-emerald-700 flex items-center gap-1">
+                <a href="posts/{art['slug']}.html" class="text-emerald-600 font-bold hover:text-emerald-700 flex items-center gap-1">
                     Devamını Oku →
                 </a>
             </div>
