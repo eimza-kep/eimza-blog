@@ -210,6 +210,14 @@ def generate_site():
 
     # 2. Build Index Page
     cards_html = ""
+    if not articles:
+        cards_html = """
+        <div class="col-span-full text-center py-16 bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+            <div class="text-4xl mb-3">📝</div>
+            <h3 class="text-lg font-bold text-slate-800">Henüz Yayınlanmış Makale Bulunmuyor</h3>
+            <p class="text-sm text-slate-500 mt-2">Yeni makaleler ve teknik rehberler çok yakında burada yayınlanacaktır.</p>
+        </div>
+        """
     for art in articles:
         cards_html += f"""
         <div class="article-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between" data-category="{art['category'].lower()}" data-title="{art['title'].lower()}">
