@@ -22,13 +22,14 @@ SITE_DESC = "E-İmza, KEP, UYAP ve e-Dönüşüm araçları için modern açık 
 SITE_URL = "https://eimza-kep.github.io/eimza-blog"
 
 def slugify(text):
-    text = text.lower()
     replacements = {
-        'ı': 'i', 'ğ': 'g', 'ü': 'u', 'ş': 's', 'ö': 'o', 'ç': 'c',
-        'İ': 'i', 'Ğ': 'g', 'Ü': 'u', 'Ş': 's', 'Ö': 'o', 'Ç': 'c'
+        'İ': 'i', 'I': 'i', 'ı': 'i', 'ğ': 'g', 'Ğ': 'g',
+        'ü': 'u', 'Ü': 'u', 'ş': 's', 'Ş': 's', 'ö': 'o',
+        'Ö': 'o', 'ç': 'c', 'Ç': 'c'
     }
     for tr, en in replacements.items():
         text = text.replace(tr, en)
+    text = text.lower()
     text = re.sub(r'[^a-z0-9]+', '-', text)
     return text.strip('-')
 

@@ -1,5 +1,9 @@
 # Türkiye E-Dönüşüm & Dijital İmza Yayın Ekosistemi
 
+[![CI Tests](https://github.com/eimza-kep/eimza-blog/actions/workflows/ci.yml/badge.svg)](https://github.com/eimza-kep/eimza-blog/actions/workflows/ci.yml)
+[![GitHub Pages](https://github.com/eimza-kep/eimza-blog/actions/workflows/deploy.yml/badge.svg)](https://github.com/eimza-kep/eimza-blog/actions/workflows/deploy.yml)
+[![Canlı Blog](https://img.shields.io/badge/Demo-Canl%C4%B1%20Blog-brightgreen.svg)](https://eimza-kep.github.io/eimza-blog/)
+
 Bu merkez depo (**eimza-blog**), Türkiye'deki e-imza, KEP, mali mühür, e-fatura ve dijital dönüşüm konularında kurulmuş çok kanallı dijital yayın ve açık kaynak ağının ana merkezidir.
 
 ---
