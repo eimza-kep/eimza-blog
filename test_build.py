@@ -20,6 +20,9 @@ class TestBlogBuild(unittest.TestCase):
         self.assertTrue(dist_dir.exists())
         self.assertTrue((dist_dir / "index.html").exists())
         self.assertTrue((dist_dir / "hakkimizda.html").exists())
+        self.assertTrue((dist_dir / "feed.xml").exists())
+        feed_content = (dist_dir / "feed.xml").read_text(encoding="utf-8")
+        self.assertIn("<rss version=\"2.0\"", feed_content)
 
     def test_slugify(self):
         self.assertEqual(build.slugify("İstanbul ve Çankaya Hukuk"), "istanbul-ve-cankaya-hukuk")

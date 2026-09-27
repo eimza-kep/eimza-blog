@@ -244,7 +244,38 @@ def generate_site():
     with open(os.path.join(DIST_DIR, "hakkimizda.html"), "w", encoding="utf-8") as out:
         out.write(about_html)
 
-    print(f"Done! Built {len(articles)} articles and new About page into {DIST_DIR}.")
+    # 4. Build RSS Feed (feed.xml)
+    import html
+    rss_items = []
+    for art in articles:
+        desc = art.get("meta", {}).get("desc", art.get("meta", {}).get("description", art["title"]))
+        pub = art["pub_date"] if art["pub_date"] else "2026-09-28"
+        item_xml = f"""    <item>
+      <title>{html.escape(art["title"])}</title>
+      <link>{SITE_URL}/posts/{art["slug"]}.html</link>
+      <guid>{SITE_URL}/posts/{art["slug"]}.html</guid>
+      <pubDate>{pub}</pubDate>
+      <description>{html.escape(desc)}</description>
+    </item>"""
+        rss_items.append(item_xml)
+
+    rss_content = f"""<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{html.escape(SITE_TITLE)}</title>
+    <link>{SITE_URL}</link>
+    <description>{html.escape(SITE_DESC)}</description>
+    <language>tr</language>
+    <atom:link href="{SITE_URL}/feed.xml" rel="self" type="application/rss+xml" />
+{"\n".join(rss_items)}
+  </channel>
+</rss>"""
+
+    with open(os.path.join(DIST_DIR, "feed.xml"), "w", encoding="utf-8") as out:
+        out.write(rss_content)
+
+    print(f"Done! Built {len(articles)} articles, About page, and feed.xml into {DIST_DIR}.")
 
 if __name__ == "__main__":
     generate_site()
+
