@@ -155,13 +155,13 @@ def get_base_template(title, content, base_path="./", canonical_url=""):
     <footer class="bg-white border-t border-slate-200 mt-16 py-10 text-center text-sm text-slate-500">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-6 text-xs font-semibold text-slate-600 mb-4">
-                <a href="https://eimza-rehberi.pages.dev" target="_blank" class="hover:text-emerald-600">E-İmza Rehberi</a>
-                <a href="https://kep-akademisi.pages.dev" target="_blank" class="hover:text-emerald-600">KEP Akademisi</a>
-                <a href="https://mali-muhur-merkezi.pages.dev" target="_blank" class="hover:text-emerald-600">Mali Mühür</a>
-                <a href="https://efatura-atolyesi.pages.dev" target="_blank" class="hover:text-emerald-600">e-Fatura Atölyesi</a>
-                <a href="https://edonusum-kobi.pages.dev" target="_blank" class="hover:text-emerald-600">KOBİ Dönüşüm</a>
-                <a href="https://uyap-teknik-destek.pages.dev" target="_blank" class="hover:text-emerald-600">UYAP Destek</a>
-                <a href="https://dijital-kimlik-guvenlik.pages.dev" target="_blank" class="hover:text-emerald-600">Kimlik & PKI Lab</a>
+                <a href="https://eimzabilgi.site" target="_blank" class="hover:text-emerald-600">E-İmza Rehberi</a>
+                <a href="https://keprehberi.site" target="_blank" class="hover:text-emerald-600">KEP Akademisi</a>
+                <a href="https://malimuhur.site" target="_blank" class="hover:text-emerald-600">Mali Mühür</a>
+                <a href="https://efaturabilgi.site" target="_blank" class="hover:text-emerald-600">e-Fatura Atölyesi</a>
+                <a href="https://edonusumkobi.site" target="_blank" class="hover:text-emerald-600">KOBİ Dönüşüm</a>
+                <a href="https://uyapteknikdestek.site" target="_blank" class="hover:text-emerald-600">UYAP Destek</a>
+                <a href="https://kimlikguvenlik.site" target="_blank" class="hover:text-emerald-600">Kimlik & PKI Lab</a>
                 <a href="{base_path}feed.xml" target="_blank" class="text-emerald-600 hover:text-emerald-700 font-bold">📡 RSS</a>
             </div>
             <p class="font-semibold text-slate-700">© 2026 E-İmza ve E-Dönüşüm Ekosistemi</p>
@@ -314,14 +314,14 @@ def generate_site():
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Portal 1 -->
-            <a href="https://eimza-rehberi.pages.dev" target="_blank" rel="noopener" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+            <a href="https://eimzabilgi.site" target="_blank" rel="noopener" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                         ✍️
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="bg-indigo-50 text-indigo-700 text-[11px] font-bold px-2 py-0.5 rounded-full border border-indigo-100">E-İmza & 5070</span>
-                        <span class="text-[11px] text-slate-400 font-medium">eimza-rehberi.pages.dev</span>
+                        <span class="text-[11px] text-slate-400 font-medium">eimzabilgi.site</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-2">E-İmza Rehberi</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -335,14 +335,14 @@ def generate_site():
             </a>
 
             <!-- Portal 2 -->
-            <a href="https://kep-akademisi.pages.dev" target="_blank" rel="noopener" class="group bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-amber-400/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-slate-200">
+            <a href="https://keprehberi.site" target="_blank" rel="noopener" class="group bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-amber-400/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-slate-200">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                         📜
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="bg-amber-500/10 text-amber-300 text-[11px] font-bold px-2 py-0.5 rounded-full border border-amber-500/20">KEP & Tebligat</span>
-                        <span class="text-[11px] text-slate-400 font-medium">kep-akademisi.pages.dev</span>
+                        <span class="text-[11px] text-slate-400 font-medium">keprehberi.site</span>
                     </div>
                     <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors mb-2">KEP Akademisi</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">
@@ -356,14 +356,14 @@ def generate_site():
             </a>
 
             <!-- Portal 3 -->
-            <a href="https://mali-muhur-merkezi.pages.dev" target="_blank" rel="noopener" class="group bg-[#150709] rounded-2xl p-6 border border-rose-950 hover:border-rose-500/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-rose-100">
+            <a href="https://malimuhur.site" target="_blank" rel="noopener" class="group bg-[#150709] rounded-2xl p-6 border border-rose-950 hover:border-rose-500/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-rose-100">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-rose-900/30 text-rose-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                         🔴
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="bg-rose-900/40 text-rose-300 text-[11px] font-bold px-2 py-0.5 rounded-full border border-rose-800/40">Mali Mühür</span>
-                        <span class="text-[11px] text-rose-300/60 font-medium">mali-muhur-merkezi.pages.dev</span>
+                        <span class="text-[11px] text-rose-300/60 font-medium">malimuhur.site</span>
                     </div>
                     <h3 class="text-lg font-bold text-white group-hover:text-rose-400 transition-colors mb-2">Mali Mühür Merkezi</h3>
                     <p class="text-xs text-rose-200/70 leading-relaxed">
@@ -377,14 +377,14 @@ def generate_site():
             </a>
 
             <!-- Portal 4 -->
-            <a href="https://efatura-atolyesi.pages.dev" target="_blank" rel="noopener" class="group bg-[#0f071f] rounded-2xl p-6 border border-purple-950 hover:border-purple-500/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-slate-200">
+            <a href="https://efaturabilgi.site" target="_blank" rel="noopener" class="group bg-[#0f071f] rounded-2xl p-6 border border-purple-950 hover:border-purple-500/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-slate-200">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-purple-900/30 text-purple-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                         🧾
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="bg-purple-900/40 text-purple-300 text-[11px] font-bold px-2 py-0.5 rounded-full border border-purple-800/40">e-Fatura & e-SMM</span>
-                        <span class="text-[11px] text-purple-300/60 font-medium">efatura-atolyesi.pages.dev</span>
+                        <span class="text-[11px] text-purple-300/60 font-medium">efaturabilgi.site</span>
                     </div>
                     <h3 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors mb-2">e-Fatura Atölyesi</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">
@@ -398,14 +398,14 @@ def generate_site():
             </a>
 
             <!-- Portal 5 -->
-            <a href="https://edonusum-kobi.pages.dev" target="_blank" rel="noopener" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-teal-400 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+            <a href="https://edonusumkobi.site" target="_blank" rel="noopener" class="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-teal-400 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                         🏭
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="bg-teal-50 text-teal-700 text-[11px] font-bold px-2 py-0.5 rounded-full border border-teal-100">KOBİ & ERP</span>
-                        <span class="text-[11px] text-slate-400 font-medium">edonusum-kobi.pages.dev</span>
+                        <span class="text-[11px] text-slate-400 font-medium">edonusumkobi.site</span>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 group-hover:text-teal-700 transition-colors mb-2">E-Dönüşüm KOBİ</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -419,14 +419,14 @@ def generate_site():
             </a>
 
             <!-- Portal 6 -->
-            <a href="https://uyap-teknik-destek.pages.dev" target="_blank" rel="noopener" class="group bg-[#061a12] rounded-2xl p-6 border border-emerald-950 hover:border-emerald-500/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-slate-200">
+            <a href="https://uyapteknikdestek.site" target="_blank" rel="noopener" class="group bg-[#061a12] rounded-2xl p-6 border border-emerald-950 hover:border-emerald-500/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-slate-200">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-emerald-900/30 text-emerald-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                         ⚖️
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="bg-emerald-900/40 text-emerald-300 text-[11px] font-bold px-2 py-0.5 rounded-full border border-emerald-800/40">UYAP & Hukuk</span>
-                        <span class="text-[11px] text-emerald-300/60 font-medium">uyap-teknik-destek.pages.dev</span>
+                        <span class="text-[11px] text-emerald-300/60 font-medium">uyapteknikdestek.site</span>
                     </div>
                     <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors mb-2">UYAP Teknik Destek</h3>
                     <p class="text-xs text-emerald-100/70 leading-relaxed">
@@ -440,14 +440,14 @@ def generate_site():
             </a>
 
             <!-- Portal 7 -->
-            <a href="https://dijital-kimlik-guvenlik.pages.dev" target="_blank" rel="noopener" class="group bg-[#030712] rounded-2xl p-6 border border-cyan-950 hover:border-cyan-400/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-slate-200 md:col-span-2 lg:col-span-3">
+            <a href="https://kimlikguvenlik.site" target="_blank" rel="noopener" class="group bg-[#030712] rounded-2xl p-6 border border-cyan-950 hover:border-cyan-400/50 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between text-slate-200 md:col-span-2 lg:col-span-3">
                 <div>
                     <div class="w-12 h-12 rounded-xl bg-cyan-950/60 text-cyan-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                         🔐
                     </div>
                     <div class="flex items-center gap-2 mb-2">
                         <span class="bg-cyan-950/60 text-cyan-300 text-[11px] font-bold px-2 py-0.5 rounded-full border border-cyan-800/40">PKI & Siber Güvenlik</span>
-                        <span class="text-[11px] text-cyan-400/60 font-medium">dijital-kimlik-guvenlik.pages.dev</span>
+                        <span class="text-[11px] text-cyan-400/60 font-medium">kimlikguvenlik.site</span>
                     </div>
                     <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">Dijital Kimlik & Siber Güvenlik Laboratuvarı</h3>
                     <p class="text-xs text-slate-400 leading-relaxed max-w-3xl">

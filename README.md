@@ -14,13 +14,13 @@ Her biri bağımsız tasarıma, özgün renk paletine ve odaklanmış bir niş k
 
 | # | Portal Adı | Niş Odak & Konu | Canlı URL |
 |---|---|---|---|
-| 1 | **E-İmza Rehberi** | 5070 Sayılı Kanun, USB Token donanımları, AKİS sürücüleri, NES | [eimza-rehberi.pages.dev](https://eimza-rehberi.pages.dev) |
-| 2 | **KEP Akademisi** | Kayıtlı Elektronik Posta, noter masrafsız ihtarname, delil güvenliği | [kep-akademisi.pages.dev](https://kep-akademisi.pages.dev) |
-| 3 | **Mali Mühür Merkezi** | TÜBİTAK Kamu SM başvuru, şirket kuruluşu, e-Defter kriz yönetimi | [mali-muhur-merkezi.pages.dev](https://mali-muhur-merkezi.pages.dev) |
-| 4 | **e-Fatura Atölyesi** | GİB Portal, e-Arşiv, e-İrsaliye karekod, serbest meslek makbuzu (e-SMM) | [efatura-atolyesi.pages.dev](https://efatura-atolyesi.pages.dev) |
-| 5 | **E-Dönüşüm KOBİ** | KOBİ'ler ve esnaflar için ERP uyumu, KOSGEB teşvikleri, maliyet analizi | [edonusum-kobi.pages.dev](https://edonusum-kobi.pages.dev) |
-| 6 | **UYAP Teknik Destek** | Avukatlar için UYAP Java güvenlik izinleri, UDF editör onarımı | [uyap-teknik-destek.pages.dev](https://uyap-teknik-destek.pages.dev) |
-| 7 | **Dijital Kimlik Lab** | PKI mimarisi, kriptografi, RSA/ECC, YubiKey FIDO2, Zero Trust | [dijital-kimlik-guvenlik.pages.dev](https://dijital-kimlik-guvenlik.pages.dev) |
+| 1 | **E-İmza Rehberi** | 5070 Sayılı Kanun, USB Token donanımları, AKİS sürücüleri, NES | [eimzabilgi.site](https://eimzabilgi.site) |
+| 2 | **KEP Akademisi** | Kayıtlı Elektronik Posta, noter masrafsız ihtarname, delil güvenliği | [keprehberi.site](https://keprehberi.site) |
+| 3 | **Mali Mühür Merkezi** | TÜBİTAK Kamu SM başvuru, şirket kuruluşu, e-Defter kriz yönetimi | [malimuhur.site](https://malimuhur.site) |
+| 4 | **e-Fatura Atölyesi** | GİB Portal, e-Arşiv, e-İrsaliye karekod, serbest meslek makbuzu (e-SMM) | [efaturabilgi.site](https://efaturabilgi.site) |
+| 5 | **E-Dönüşüm KOBİ** | KOBİ'ler ve esnaflar için ERP uyumu, KOSGEB teşvikleri, maliyet analizi | [edonusumkobi.site](https://edonusumkobi.site) |
+| 6 | **UYAP Teknik Destek** | Avukatlar için UYAP Java güvenlik izinleri, UDF editör onarımı | [uyapteknikdestek.site](https://uyapteknikdestek.site) |
+| 7 | **Dijital Kimlik Lab** | PKI mimarisi, kriptografi, RSA/ECC, YubiKey FIDO2, Zero Trust | [kimlikguvenlik.site](https://kimlikguvenlik.site) |
 
 ---
 
