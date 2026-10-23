@@ -3,12 +3,99 @@
 [![CI Tests](https://github.com/eimza-kep/eimza-blog/actions/workflows/ci.yml/badge.svg)](https://github.com/eimza-kep/eimza-blog/actions/workflows/ci.yml)
 [![GitHub Pages](https://github.com/eimza-kep/eimza-blog/actions/workflows/deploy.yml/badge.svg)](https://github.com/eimza-kep/eimza-blog/actions/workflows/deploy.yml)
 [![Canlı Blog](https://img.shields.io/badge/Demo-Canl%C4%B1%20Blog-brightgreen.svg)](https://eimza-kep.github.io/eimza-blog/)
+[![RSS 2.0 Feed](https://img.shields.io/badge/RSS-2.0%20Feed-orange.svg)](https://eimza-kep.github.io/eimza-blog/feed.xml)
+[![JSON Feed](https://img.shields.io/badge/JSON-Feed%201.1-blue.svg)](https://eimza-kep.github.io/eimza-blog/feed.json)
 
 Bu merkez depo (**eimza-blog**), Türkiye'deki e-imza, KEP, mali mühür, e-fatura ve dijital dönüşüm konularında kurulmuş çok kanallı dijital yayın ve açık kaynak ağının ana merkezidir.
 
 ---
 
-## 🌐 1. Özel Tematik Portallar (Cloudflare Pages)
+## ⚡ Temel Özellikler
+
+- **%100 İstemci Taraflı Canlı Arama (Vanilla JS):** Herhangi bir harici npm/CDN bağımlılığı olmaksızın makale başlıkları, özetleri, etiketleri ve kategorilerinde anlık arama.
+- **Kategori Filtreleme Çipleri:** E-İmza & Donanım, E-Dönüşüm, Başvuru Rehberi, Pratik İpuçları gibi niş kategorilerde tek tıkla filtreleme ve sayaç.
+- **RSS 2.0 & JSON Feed 1.1:** Tüm standart RSS okuyucular ve otomasyonlar için RFC-822 uyumlu `feed.xml` ve `feed.json` yayını.
+- **Sıfır Sunucu Maliyeti & Maksimum Hız:** Saf Python ile Markdown'dan statik HTML'e dönüştürme; GitHub Pages & Cloudflare Pages ile CDN üzerinden sıfır bekleme süresiyle sunum.
+
+---
+
+## 🚀 Kurulum ve Yerel Geliştirme (Local Development)
+
+Projeyi yerel bilgisayarınızda çalıştırmak ve test etmek için aşağıdaki adımları izleyin:
+
+### 1. Gereksinimler
+- **Python 3.9+** (Python 3.10, 3.11 veya 3.12 önerilir)
+- **Git**
+
+### 2. Depoyu Klonlayın
+```bash
+git clone https://github.com/eimza-kep/eimza-blog.git
+cd eimza-blog
+```
+
+### 3. Sanal Ortam Oluşturun ve Bağımlılıkları Yükleyin
+```bash
+# Sanal ortam oluşturma (isteğe bağlı ancak önerilir)
+python -m venv venv
+
+# Sanal ortamı aktive edin
+# Windows:
+venv\Scripts\activate
+# Linux / macOS:
+source venv/bin/activate
+
+# Gerekli bağımlılıkları yükleyin
+pip install -r requirements.txt
+```
+
+### 4. Blogu Derleyin (Build)
+Markdown dosyalarını derleyip `dist/` klasörüne HTML, CSS, RSS (`feed.xml`) ve JSON (`feed.json`) çıktıları üretmek için:
+```bash
+python build.py
+```
+*Derleme tamamlandığında `Done! Built X articles, About page, feed.xml, and feed.json into .../dist.` çıktısını göreceksiniz.*
+
+### 5. Yerel Web Sunucusunu Başlatın
+Oluşturulan `dist/` klasörünü yerelde görüntülemek için:
+```bash
+python -m http.server -d dist 8000
+```
+Tarayıcınızda [http://localhost:8000](http://localhost:8000) adresine giderek blogu, arama çubuğunu ve kategori filtrelerini inceleyebilirsiniz.
+
+### 6. Birim Testleri Çalıştırın
+Tüm yapılandırmaları, slug üretimini, arama filtre bileşenlerini ve feed sözdizimini doğrulamak için:
+```bash
+python -m unittest test_build.py
+```
+
+---
+
+## ✍️ Yeni Makale veya Rehber Ekleme
+
+`content/posts/` klasörü altına yeni bir `.md` dosyası ekleyerek sisteme yeni içerik kazandırabilirsiniz.
+
+Örnek dosya yapısı: `content/posts/yeni-rehber-basligi.md`
+
+```markdown
+---
+title: "macOS Sequoia Üzerinde AKİS E-İmza Kurulumu"
+description: "Apple Silicon M serisi işlemcili Mac'lerde e-imza kartlarının yapılandırılması ve UYAP entegrasyonu."
+category: "E-İmza & Donanım"
+pubDate: "2026-10-23"
+author: "Teknik Ekip"
+tags: ["akis", "macos", "e-imza", "uyap"]
+---
+
+# macOS Sequoia Üzerinde AKİS E-İmza Kurulumu
+
+İçerik buraya Markdown formatında yazılır...
+```
+
+Yeni dosyayı kaydettikten sonra `python build.py` komutu ile `dist/` içeriğini güncelleyebilirsiniz.
+
+---
+
+## 🌐 Özel Tematik Portallar (Cloudflare Pages)
 
 Her biri bağımsız tasarıma, özgün renk paletine ve odaklanmış bir niş kitleye sahip 7 Cloudflare Pages portalı:
 
@@ -24,16 +111,7 @@ Her biri bağımsız tasarıma, özgün renk paletine ve odaklanmış bir niş k
 
 ---
 
-## 🚀 2. Geliştirici & Mobil Kanallar
-
-* **DEV.to Mühendislik Blogu:** [dev.to/eimza](https://dev.to/eimza)
-  - *Yayındaki Makale:* [Türkiye'de E-İmza ve E-Dönüşüm Mimarisi: PKI, Akıllı Kartlar ve Yazılımcı Rehberi](https://dev.to/eimza/turkiyede-e-imza-ve-e-donusum-mimarisi-pki-akilli-kartlar-ve-yazilimci-rehberi-1jh4)
-* **Telegram / Telegra.ph Mobil Kılavuz:** [telegra.ph/Türkiye-E-Dönüşüm--E-İmza-Rehberi-09-19](https://telegra.ph/Türkiye-E-Dönüşüm--E-İmza-Rehberi-09-19)
-  - Telegram Instant View ile sıfır bekleme süreli mobil bilgi tabanı.
-
----
-
-## 🛠️ 3. Açık Kaynak E-Dönüşüm Araçları (GitHub Repoları)
+## 🛠️ Açık Kaynak E-Dönüşüm Araçları (GitHub Repoları)
 
 Organik arama trafiği ve geliştirici güveni oluşturan 10 açık kaynak GitHub projesi:
 
@@ -50,9 +128,17 @@ Organik arama trafiği ve geliştirici güveni oluşturan 10 açık kaynak GitHu
 
 ---
 
-## 🏛️ 4. Ana Merkez Portalı (GitHub Pages & Cloudflare Mirror)
+## 🏛️ Yayın Bağlantıları
 
 * **GitHub Pages:** [https://eimza-kep.github.io/eimza-blog/](https://eimza-kep.github.io/eimza-blog/)
 * **Cloudflare Mirror:** [https://eimza-blog.pages.dev](https://eimza-blog.pages.dev)
-* **RSS 2.0 Yayını:** [https://eimza-blog.pages.dev/feed.xml](https://eimza-blog.pages.dev/feed.xml)
-* **JSON Feed 1.1:** [https://eimza-blog.pages.dev/feed.json](https://eimza-blog.pages.dev/feed.json)
+* **RSS 2.0 Feed:** [https://eimza-kep.github.io/eimza-blog/feed.xml](https://eimza-kep.github.io/eimza-blog/feed.xml)
+* **JSON Feed 1.1:** [https://eimza-kep.github.io/eimza-blog/feed.json](https://eimza-kep.github.io/eimza-blog/feed.json)
+* **DEV.to Mühendislik Blogu:** [dev.to/eimza](https://dev.to/eimza)
+* **Telegram / Telegra.ph Mobil Kılavuz:** [telegra.ph/Türkiye-E-Dönüşüm--E-İmza-Rehberi-09-19](https://telegra.ph/Türkiye-E-Dönüşüm--E-İmza-Rehberi-09-19)
+
+---
+
+## 📄 Lisans
+
+Bu proje [MIT Lisansı](LICENSE) kapsamında açık kaynak olarak geliştirilmektedir.
